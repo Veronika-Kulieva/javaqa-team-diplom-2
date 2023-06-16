@@ -15,14 +15,14 @@ public class SavingAccountTest {
     @Test
     public void shouldThrowExceptionIfRateIsNegative() { //должен выдать исключение, если ставка отрицательна
         Assertions.assertThrows(IllegalArgumentException.class, () -> {
-            new SavingAccount(2_000, 1_000, 10_000,-5);
+            new SavingAccount(2_000, 1_000, 10_000, -5);
         });
     }
 
     @Test
     public void shouldThrowExceptionIfBalanceIsNegative() { //должно вызывать исключение, если баланс отрицательный
         Assertions.assertThrows(IllegalArgumentException.class, () -> {
-            new SavingAccount(-2000, 1_000, 10_000,5);
+            new SavingAccount(-2000, 1_000, 10_000, 5);
         });
     }
 
@@ -77,9 +77,10 @@ public class SavingAccountTest {
                 5
         );
 
-        account.pay(1_000);
+        boolean results = account.pay(1_000);
 
-        Assertions.assertEquals(2_000, account.getBalance());
+        Assertions.assertEquals(1_000, account.getBalance());
+        Assertions.assertEquals(true,results);
     }
 
     @Test
@@ -135,7 +136,7 @@ public class SavingAccountTest {
 
         account.add(8_000);
 
-        Assertions.assertEquals(2_000, account.getBalance());
+        Assertions.assertEquals(10_000, account.getBalance());
     }
 
     @Test
