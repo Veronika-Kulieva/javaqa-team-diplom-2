@@ -17,6 +17,7 @@ public class CreditAccountTest {
 
         Assertions.assertEquals(3_000, account.getBalance());
     }
+
     @Test
     public void shouldAddZeroToPositiveBalance() { //добавить 0 к положительному балансу
         CreditAccount account = new CreditAccount(
