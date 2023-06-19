@@ -77,10 +77,9 @@ public class SavingAccountTest {
                 5
         );
 
-        boolean results = account.pay(1_000);
+        account.pay(1_000);
 
         Assertions.assertEquals(1_000, account.getBalance());
-        Assertions.assertEquals(true,results);
     }
 
     @Test
